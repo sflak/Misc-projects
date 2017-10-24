@@ -1,0 +1,38 @@
+/*Sydney Flak
+sflak1@my.smccd.edu
+CIS 114 OL
+translate.css
+Assignment #7
+5/13/16*/
+
+body {
+	background-color: lightgrey;
+}
+
+#theForm {
+	border: solid 2px;
+	border-color: orange;
+	padding: 20px;
+	width: 50%;
+}
+
+#text {
+	width: 500px;
+}
+
+.output {
+	border: solid 2px;
+	border-color: orange;
+    width: 53.5%;
+    height: 100px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.output h2 {
+	padding-left: 30px;
+    padding-top: 10px;
+}
+#output {
+	padding-left: 30px;
+
+}

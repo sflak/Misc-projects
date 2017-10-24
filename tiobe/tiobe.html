@@ -1,0 +1,68 @@
+<!-- Sydney Flak
+sflak1@my.smccd.edu
+CIS 114 OL
+tiobe.html
+Assignment #7
+5/13/16 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <title>Sydney Flak</title>
+    <style>
+        #cloud { border-radius:3px;border:1px solid #d0d0d0; }
+        #cloud span { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Tiobe Index Top 20 Programming Languages April 2016</h1>
+    <div id='cloud' style="width:640px;height:450px;position:relative;"></div>
+    <div id="details" style="width:640px;text-align:center;line-height:2em;margin-top:0.5em"></div>
+    <script src='js/tiobe.js'></script>
+    <script>
+        var tags = [
+         ["c#", 4.481],
+         ["java", 20.956],
+         ["javascript", 2.340],
+         ["php", 2.992],
+         ["python", 3.789],
+         ["c++", 6.698],
+         ["objective-c", 1.597],
+         ["ruby", 2.338],
+         ["c", 13.223],     
+         ["r", 1.334],
+         ["perl", 2.326],       
+         ["matlab", 1.287],
+         ["delphi/object-pascal", 2.008],
+         ["visual basic .NET", 2.325],
+         ["assembly language", 1.883],
+         ["visual basic", 1.828],
+         ["swift", 1.593],
+         ["groovy", 1.288],
+         ["pl/sql", 1.208],
+         ["d", 0.975]
+         
+        ];
+        
+        WordCloud(document.getElementById('cloud'), {
+          list : tags.map(function(word) { return [word[0], Math.round(word[1]*10.4)]; })
+        });
+        
+        var clicked = function(ev) {
+          if (ev.target.nodeName === "SPAN") {
+            var tag = ev.target.textContent;
+            var tagElem;
+            if (tags.some(function(el) { if (el[0] === tag) {tagElem = el; return true;} return false; })) {
+            document.getElementById("details").innerText = "The rating for " + tag + 
+                " is " + tagElem[1] + "%";
+            }
+          } else {
+            document.getElementById("details").innerText = "";
+          }
+        }
+        document.getElementById("cloud").addEventListener("click", clicked)
+    </script>
+</body>
+</html>
